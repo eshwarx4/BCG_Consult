@@ -2,7 +2,6 @@ import React, {
     useState,
     ChangeEvent,
     FormEvent,
-
     FC,
     ReactNode,
 } from 'react';
@@ -15,6 +14,12 @@ import {
     Building,
     Users,
 } from 'lucide-react';
+
+/**
+ * NOTE: Make sure you have react-router-dom installed:
+ *   npm install react-router-dom
+ */
+import { useNavigate } from 'react-router-dom';
 
 // Types
 type TUserType = '' | 'farmer' | 'government' | 'expert';
@@ -161,8 +166,8 @@ const SubmitButton: FC<SubmitButtonProps> = ({ text, icon, isDisabled }) => (
         type="submit"
         disabled={isDisabled}
         className={`group relative w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-white ${!isDisabled
-            ? 'bg-green-600 hover:bg-green-700'
-            : 'bg-gray-400 cursor-not-allowed'
+                ? 'bg-green-600 hover:bg-green-700'
+                : 'bg-gray-400 cursor-not-allowed'
             } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors`}
     >
         <span className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -172,14 +177,25 @@ const SubmitButton: FC<SubmitButtonProps> = ({ text, icon, isDisabled }) => (
     </motion.button>
 );
 
-// Types for Login form
+/* =====================================
+   Utility: Simple Email Validator
+====================================== */
+const isValidEmail = (email: string) => {
+    // Basic check for something@something
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+/* =====================================
+   LOGIN PAGE
+====================================== */
+
 interface LoginFormData {
     email: string;
     password: string;
 }
 
-// Login Page Component
 export const LoginPage: FC = () => {
+    const navigate = useNavigate();
     const [userType, setUserType] = useState<TUserType>('');
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
@@ -194,8 +210,36 @@ export const LoginPage: FC = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Login attempt:', { userType, ...formData });
-        // Add your login logic here
+
+        // 1) Validate email
+        if (!isValidEmail(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // 2) Validate password is not empty (optional)
+        if (!formData.password) {
+            alert('Please enter a password.');
+            return;
+        }
+
+        // 3) Redirect based on userType
+        switch (userType) {
+            case 'farmer':
+                navigate('/dashboard/farmer');
+                break;
+            case 'government':
+                navigate('/dashboard/government');
+                break;
+            case 'expert':
+                // 'expert' was labeled as 'Retailer', so direct to retailer
+                navigate('/dashboard/retailer');
+                break;
+            default:
+                // No userType selected
+                alert('Please select your role.');
+                break;
+        }
     };
 
     return (
@@ -208,13 +252,18 @@ export const LoginPage: FC = () => {
             >
                 <div className="text-center">
                     <div className="flex justify-center">
-                        <img src="Logo_Main-removebg-preview.png" width={75} height={50} alt="" />
+                        <img
+                            src="Logo_Main-removebg-preview.png"
+                            width={75}
+                            height={50}
+                            alt="Logo"
+                        />
                     </div>
                     <h2 className="mt-2 text-3xl font-extrabold text-gray-900">
                         Welcome back
                     </h2>
                     <p className="mt-2 text-sm text-gray-600">
-                        Sign in to your Agripulse AI account
+                        Sign in to your KrishiRakshak account
                     </p>
                 </div>
 
@@ -265,7 +314,10 @@ export const LoginPage: FC = () => {
                         </div>
 
                         <div className="text-sm">
-                            <a href="#" className="font-medium text-green-600 hover:text-green-500">
+                            <a
+                                href="#"
+                                className="font-medium text-green-600 hover:text-green-500"
+                            >
                                 Forgot your password?
                             </a>
                         </div>
@@ -294,7 +346,10 @@ export const LoginPage: FC = () => {
     );
 };
 
-// Types for Register form
+/* =====================================
+   REGISTER PAGE
+====================================== */
+
 interface RegisterFormData {
     firstName: string;
     lastName: string;
@@ -306,8 +361,8 @@ interface RegisterFormData {
     };
 }
 
-// Register Page Component
 export const RegisterPage: FC = () => {
+    const navigate = useNavigate();
     const [userType, setUserType] = useState<TUserType>('');
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const [formData, setFormData] = useState<RegisterFormData>({
@@ -319,7 +374,9 @@ export const RegisterPage: FC = () => {
         additionalFields: {},
     });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         const { name, value } = e.target;
 
         // If it's a nested field like "additionalFields.x"
@@ -339,8 +396,39 @@ export const RegisterPage: FC = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Registration attempt:', { userType, ...formData });
-        // Add your registration logic here
+
+        // Validate email
+        if (!isValidEmail(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        if (!formData.password) {
+            alert('Please enter a password.');
+            return;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+        // Redirect based on userType
+        switch (userType) {
+            case 'farmer':
+                navigate('/dashboard/farmer');
+                break;
+            case 'government':
+                navigate('/dashboard/government');
+                break;
+            case 'expert':
+                // 'expert' => 'Retailer'
+                navigate('/dashboard/retailer');
+                break;
+            default:
+                alert('Please select your role.');
+                break;
+        }
     };
 
     // Define the fields for each user type
@@ -460,10 +548,15 @@ export const RegisterPage: FC = () => {
                 >
                     <div className="text-center">
                         <div className="flex justify-center">
-                            <img src="Logo_Main-removebg-preview.png" width={80} height={50} alt="" />
+                            <img
+                                src="Logo_Main-removebg-preview.png"
+                                width={80}
+                                height={50}
+                                alt="Logo"
+                            />
                         </div>
                         <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-                            Join Agripulse AI
+                            Join KrishiRakshak
                         </h2>
                         <p className="mt-2 text-sm text-gray-600">
                             Create your account to get started

@@ -61,7 +61,7 @@ const Testimonials = () => {
                         What Our Farmers Say
                     </h2>
                     <p className="mt-4 text-xl text-gray-600">
-                        Success stories from farmers who transformed their operations with AgriPulse AI
+                        Success stories from farmers who transformed their operations with KrishiRakshak
                     </p>
                 </motion.div>
 

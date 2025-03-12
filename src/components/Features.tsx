@@ -83,7 +83,7 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Why Choose Agripulse AI?
+            Why Choose KrishiRakshak?
           </h2>
           <p className="mt-4 text-xl text-gray-600">
             Revolutionize your farming with our comprehensive suite of smart solutions

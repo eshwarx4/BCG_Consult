@@ -55,7 +55,7 @@ const HowItWorks = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
-            How Agripulse AI Works
+            How KrishiRakshak Works
           </h2>
           <p className="text-xl text-gray-600">
             Get started with our AI-powered farming assistant in minutes

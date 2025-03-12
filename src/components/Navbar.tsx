@@ -55,7 +55,7 @@ const Navbar = () => {
                   className={` text-lg font-bold ${scrolled ? 'text-gray-800' : 'text-white'
                     }`}
                 >
-                  Agripulse AI
+                  KrishiRakshak
                 </span>
 
               </div>
