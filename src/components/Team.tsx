@@ -6,22 +6,22 @@ import { Linkedin } from 'lucide-react';
 const teamMembers = [
   {
     name: 'Eshwar Naik',
-    role: 'Co-Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80',
+    // role: 'Co-Founder & CEO',
+    image: '/Eshwar_Passphoto-removebg-preview.png',
     linkedin: 'https://linkedin.com',
     bio: 'Expert in Agricultural Technology and AI Implementation'
   },
   {
     name: 'Mahim Dungarwal',
-    role: 'Co-Founder & CTO',
-    image: 'https://images.unsplash.com/photo-1580518337843-f959e992563b?auto=format&fit=crop&q=80',
+    // role: 'Co-Founder & CTO',
+    image: 'mahim photo.jpeg.jpg',
     linkedin: 'https://linkedin.com',
     bio: 'Specialist in Machine Learning and Computer Vision'
   },
   {
     name: 'Madava Sai Charan Chowdary',
-    role: 'Co-Founder & COO',
-    image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&q=80',
+    // role: 'Co-Founder & COO',
+    image: '/Charan.jpeg.jpg',
     linkedin: 'https://linkedin.com',
     bio: 'Expert in Agricultural Operations and Farmer Relations'
   }
@@ -91,7 +91,7 @@ const Team = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 <motion.a
                   href={member.linkedin}
                   target="_blank"
@@ -103,14 +103,14 @@ const Team = () => {
                   <Linkedin className="h-6 w-6 text-blue-600" />
                 </motion.a>
               </div>
-              
+
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-gray-900">
                   {member.name}
                 </h3>
-                <p className="text-green-600 font-medium mb-2">
+                {/* <p className="text-green-600 font-medium mb-2">
                   {member.role}
-                </p>
+                </p> */}
                 <p className="text-gray-600">
                   {member.bio}
                 </p>
