@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ChatbotInterface from './Chatbot';
 
 const Hero = () => {
   return (
@@ -29,7 +30,7 @@ const Hero = () => {
             Transform your farming practices with AI-powered insights, real-time monitoring,
             and smart financial management.
           </p>
-          
+
           <div className="flex flex-wrap gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -66,7 +67,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5 }}
@@ -80,7 +81,8 @@ const Hero = () => {
           <MessageCircle className="h-6 w-6" />
           <span className="hidden md:inline">Chat with Us</span>
         </motion.button>
-      </motion.div>
+      </motion.div> */}
+      <ChatbotInterface />
     </div>
   );
 };
