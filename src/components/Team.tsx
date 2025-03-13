@@ -9,7 +9,7 @@ const teamMembers = [
     // role: 'Co-Founder & CEO',
     image: '/Eshwar_Passphoto-removebg-preview.png',
     linkedin: 'https://www.linkedin.com/in/eshwarnaikb/',
-    bio: '3rd year UG student of the department of Ocean Engineering and Naval Architecture, Public realtions Chairman | Technology Students’ Gymkhana, IIT Kharagpur, Senior Executive | Innovation and Incubation cell '
+    bio: '3rd year UG student of the department of Ocean Engineering and Naval Architecture, Public Realtions Chairman | Technology Students’ Gymkhana, IIT Kharagpur, Senior Executive | Innovation and Incubation cell '
   },
   {
     name: 'Mahim Dungarwal',
