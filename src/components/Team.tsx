@@ -9,21 +9,21 @@ const teamMembers = [
     // role: 'Co-Founder & CEO',
     image: '/Eshwar_Passphoto-removebg-preview.png',
     linkedin: 'https://www.linkedin.com/in/eshwarnaikb/',
-    bio: 'Expert in Agricultural Technology and AI Implementation'
+    bio: '3rd year UG student of the department of Ocean Engineering and Naval Architecture, Public realtions Chairman | Technology Students’ Gymkhana, IIT Kharagpur, Senior Executive | Innovation and Incubation cell '
   },
   {
     name: 'Mahim Dungarwal',
     // role: 'Co-Founder & CTO',
     image: 'mahim photo.jpeg.jpg',
     linkedin: 'https://www.linkedin.com/in/mahim-dungarwal-a61613255/',
-    bio: 'Specialist in Machine Learning and Computer Vision'
+    bio: '3rd year UG student of the department of Mining Engineering, General Secretary, Technology | Technology Students’ Gymkhana, IIT Kharagpur, Executive Head, Kshitij – Techno-Management Fest, IIT Kharagpur'
   },
   {
     name: 'Madava Sai Charan Chowdary',
     // role: 'Co-Founder & COO',
     image: '/Charan.jpeg.jpg',
     linkedin: 'https://www.linkedin.com/in/charan-mandava-416891281/',
-    bio: 'Expert in Agricultural Operations and Farmer Relations'
+    bio: '3rd Year UG student of the department of Chemistry, General Secretary, Technology | Technology Students’ Gymkhana, IIT Kharagpur, Executive Head, Kshitij – Techno-Management Fest, IIT Kharagpur'
   }
 ];
 
